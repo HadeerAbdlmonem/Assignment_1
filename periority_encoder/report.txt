@@ -1,0 +1,94 @@
+Coverage Report by DU with details
+
+=================================================================================
+=== Design Unit: work.priority_enc
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         7         7         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for Design Unit work.priority_enc
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File periority_enc.v
+------------------------------------IF Branch------------------------------------
+    10                                        19     Count coming in to IF
+    10              1                          2       if (rst)begin
+    15              1                         17       else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    16                                        17     Count coming in to CASE
+    17              1                          1       		4'b1000: Y <=2'b00;
+    18              1                          2       		4'bX100: Y <= 2'b01;
+    19              1                          4       		4'bXX10: Y <= 2'b10;
+    20              1                          8       		4'bXXX1: Y <=2'b11;
+                                               2     All False Count
+Branch totals: 5 hits of 5 branches = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       8         8         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for Design Unit work.priority_enc --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File periority_enc.v
+    1                                                module priority_enc (
+    2                                                input  clk,
+    3                                                input  rst,
+    4                                                input  [3:0] D,	
+    5                                                output  reg [1:0] Y,	//reg type wasn't specifid here 
+    6                                                output reg valid
+    7                                                );
+    8                                                
+    9               1                         19     always @(posedge clk) begin
+    10                                                 if (rst)begin
+    11              1                          2         Y <= 2'b0;
+    12              1                          2          valid<=0;
+    13                                                 end
+    14                                                    
+    15                                                 else begin
+    16                                                   casex (D)
+    17              1                          1       		4'b1000: Y <=2'b00;
+    18              1                          2       		4'bX100: Y <= 2'b01;
+    19              1                          4       		4'bXX10: Y <= 2'b10;
+    20              1                          8       		4'bXXX1: Y <=2'b11;
+    21                                                 	endcase
+    22              1                         17       	valid <= (~|D)? 1'b0: 1'b1;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         18        18         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for Design Unit work.priority_enc
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                            D[0-3]           1           1      100.00 
+                                            Y[0-1]           1           1      100.00 
+                                               clk           1           1      100.00 
+                                               rst           1           1      100.00 
+                                             valid           1           1      100.00 
+
+Total Node Count     =          9 
+Toggled Node Count   =          9 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (18 of 18 bins)
+
+
+Total Coverage By Design Unit (filtered view): 100.00%
+

@@ -1,0 +1,77 @@
+Coverage Report by DU with details
+
+=================================================================================
+=== Design Unit: work.adder
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         2         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for Design Unit work.adder
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File adder.v
+------------------------------------IF Branch------------------------------------
+    11                                        13     Count coming in to IF
+    11              1                          4           if (reset)
+    13              1                          9           else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       3         3         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for Design Unit work.adder --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File adder.v
+    1                                                module adder (
+    2                                                    input  clk,
+    3                                                    input  reset,
+    4                                                    input  signed [3:0] A,	// Input data A in 2's complement
+    5                                                    input  signed [3:0] B,	// Input data B in 2's complement
+    6                                                    output reg signed [4:0] C // Adder output in 2's complement
+    7                                                		  );
+    8                                                
+    9                                                   // Register output C
+    10              1                         13        always @(posedge clk or posedge reset) begin
+    11                                                     if (reset)
+    12              1                          4     	     C <= 5'b0;
+    13                                                     else
+    14              1                          9     	     C <= A + B;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         30        30         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for Design Unit work.adder
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                            A[0-3]           1           1      100.00 
+                                            B[0-3]           1           1      100.00 
+                                            C[0-4]           1           1      100.00 
+                                               clk           1           1      100.00 
+                                             reset           1           1      100.00 
+
+Total Node Count     =         15 
+Toggled Node Count   =         15 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (30 of 30 bins)
+
+
+Total Coverage By Design Unit (filtered view): 100.00%
+
